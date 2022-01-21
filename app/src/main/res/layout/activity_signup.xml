@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity"
+    android:background="@drawable/bck"
+    >
+
+    <RadioGroup
+        android:id="@+id/radioGrupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ime"
+        android:orientation="horizontal"
+        android:gravity="center|top">
+        <RadioButton
+            android:id="@+id/povozrasnoLice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Повозрасно лице"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/volonter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Волонтер"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/ime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/prezime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGrupa"
+        android:imeOptions="actionNext"/>
+
+    <EditText
+        android:id="@+id/prezime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/tel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ime"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:imeOptions="actionNext"
+        android:background="@color/purple_200"/>
+
+    <EditText
+        android:id="@+id/tel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prezime"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="505dp"
+        android:hint="Phone number"
+        android:imeOptions="actionNext"
+        />
+
+    <Button
+        android:id="@+id/klik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/epassword"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="email"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tel"
+        app:layout_constraintBottom_toTopOf="@id/epassword"
+        android:imeOptions="actionNext"
+        android:background="@color/purple_200"/>
+
+    <EditText
+        android:id="@+id/epassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="password"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintBottom_toTopOf="@id/klik"
+        android:imeOptions="actionDone"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Life cycle</string>
+    <string name="opis">Опис</string>
+    <string name="aktivnost">Активност</string>
+    <string name="vreme">Време</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email">email</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+
+
+    <string-array name="kratnost">
+        <item>Еднократна</item>
+        <item>Повторлива</item>
+    </string-array>
+    <string-array name="itnost">
+        <item>Итно</item>
+        <item>Не итно</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418806075011",
+    "project_id": "life-cycle-bca06",
+    "storage_bucket": "life-cycle-bca06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418806075011:android:fe878302e2cd8a6770d5b6",
+        "android_client_info": {
+          "package_name": "tea.example.lifecycle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418806075011-pfv1ot5veoc5ejfkfh2n4038cp4eus75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCl1JcDlYDbVc601GsTAIb7gXVQtqcS8Qw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418806075011-pfv1ot5veoc5ejfkfh2n4038cp4eus75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

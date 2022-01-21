@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PovozrasnoLice"
+    android:background="@drawable/bck2">
+    <EditText
+        android:id="@+id/aktivnost"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:backgroundTint="@color/purple_200"
+        app:layout_constraintBottom_toTopOf="@id/opis"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/aktivnost"
+        android:inputType="textPersonName"
+        android:ems="10"
+        />
+
+    <EditText
+        android:id="@+id/opis"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/aktivnost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/opis"
+        android:inputType="textPersonName"
+        android:ems="10"
+        />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/datePicker"
+        app:layout_constraintTop_toBottomOf="@id/opis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Select Date"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/datePicker"
+        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/time"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:ems="10"
+        android:text="JAN 01 2022"
+        android:textSize="18sp"
+        android:onClick="openDatePicker"
+        style="?android:spinnerStyle"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/time"
+        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:backgroundTint="@color/flaminog"
+        app:layout_constraintBottom_toTopOf="@id/kratnost"
+        app:layout_constraintTop_toBottomOf="@id/datePicker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:ems="10"
+        android:text="Select Time"
+        android:textSize="18sp"
+        android:onClick="popTimePicker"
+        android:textColor="@color/black"/>
+
+    <Spinner
+        android:id="@+id/kratnost"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/itnost"
+        app:layout_constraintTop_toBottomOf="@id/time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/kratnost"
+        android:spinnerMode="dropdown"
+        />
+
+    <Spinner
+        android:id="@+id/itnost"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        app:layout_constraintBottom_toTopOf="@+id/lokacija"
+        app:layout_constraintTop_toBottomOf="@id/kratnost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/itnost"
+        />
+
+    <Button
+        android:id="@+id/lokacija"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:text="Location"
+        app:layout_constraintBottom_toTopOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itnost" />
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/babyblue"
+        app:layout_constraintBottom_toTopOf="@+id/listN"
+        app:layout_constraintTop_toBottomOf="@+id/lokacija"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/save"
+        android:text="   Save Activity   "
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/listN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/flaminog"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save"
+        android:textColor="@color/black"
+        android:text="List of activities"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
