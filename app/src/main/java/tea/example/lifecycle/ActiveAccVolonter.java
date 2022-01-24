@@ -34,7 +34,7 @@ public class ActiveAccVolonter extends AppCompatActivity {
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private String emailKorisnik, telefonKorisnik, tipNaUsluga;
     private double volonterLat, volonterLon, korisnikLat, korisnikLon, distance;
-   // FusedLocationProviderClient fusedLocationProviderClient;
+   FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class ActiveAccVolonter extends AppCompatActivity {
 
         lista = findViewById(R.id.listaAktivni);
 
-       /* fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(AktivniNarackiVolonterActivity.this);
+       fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(ActiveAccVolonter.this);
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
                 @Override
@@ -56,12 +56,12 @@ public class ActiveAccVolonter extends AppCompatActivity {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 requestPermissions(new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_FINE_LOCATION);
             }
-        }*/
+        }
         FirebaseDatabase.getInstance().getReference("Aktivnosti").orderByChild("Status").equalTo("Zakazana zadaca").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                /*    //Tuka treba da se presmeta rastojanie na korisnici
+
                     korisnikLat =(Double) postSnapshot.child("Lat").getValue();
                     korisnikLon =(Double) postSnapshot.child("Lon").getValue();
                     Location startPoint = new Location("locationA");
@@ -73,8 +73,8 @@ public class ActiveAccVolonter extends AppCompatActivity {
                     endPoint.setLongitude(korisnikLon);
 
                     DecimalFormat f = new DecimalFormat("##.00");
-                    distance=startPoint.distanceTo(endPoint);*/
-                    lines.add(postSnapshot.child("ActivityType").getValue().toString());
+                    distance=startPoint.distanceTo(endPoint);
+                    lines.add(postSnapshot.child("ActivityType").getValue().toString()+ " - " + f.format(distance) + " m away");
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                         ActiveAccVolonter.this, android.R.layout.simple_list_item_1, lines);

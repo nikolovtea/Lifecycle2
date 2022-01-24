@@ -82,7 +82,7 @@ public class Userdescription extends AppCompatActivity {
                         mapUser.put("SumaRejting", sumaRejting);
                         mapUser.put("Rejting", rejting);
                         for(DataSnapshot snap: snapshot.getChildren()){
-                            FirebaseDatabase.getInstance().getReference("Users").child(snap.getKey()).updateChildren(mapUser);
+                            FirebaseDatabase.getInstance().getReference("Korisnici").child(snap.getKey()).updateChildren(mapUser);
                         }
                     }
 

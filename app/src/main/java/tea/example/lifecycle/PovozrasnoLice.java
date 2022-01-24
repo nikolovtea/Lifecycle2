@@ -46,7 +46,7 @@ import java.util.Calendar;
 
 public class PovozrasnoLice extends AppCompatActivity {
     private static final String TAG="PovozrasnoLice";
-   // private static final int PERMISSIONS_FINE_LOCATION = 99;
+   private static final int PERMISSIONS_FINE_LOCATION = 99;
 
     private Spinner spinner1,spinner2;
     private EditText aktivnost,opis;
@@ -55,18 +55,20 @@ public class PovozrasnoLice extends AppCompatActivity {
     private Button timeButton;
     private int hour, minute;
     private Button save;
-    //private Button lokacija;
+    private Button lokacija;
     private Button listN;
+    private Button logout;
+
 
     private String userID;
 
 
     private FirebaseAuth auth;
 
-    //private double lat,lon,newLat,newLon;
+    private double lat,lon,newLat,newLon;
     private String fullName,rejting,telefon,datumVreme;
-    //FusedLocationProviderClient fusedLocationProviderClient;
-    //LocationRequest locationRequest; //tuka moze nes da se smene
+    FusedLocationProviderClient fusedLocationProviderClient;
+    LocationRequest locationRequest;
 
 
 
@@ -83,17 +85,18 @@ public class PovozrasnoLice extends AppCompatActivity {
         initDatePicker();
         dateButton = findViewById(R.id.datePicker);
         dateButton.setText(getTodaysDate());
-        //lokacija=findViewById(R.id.lokacija);
+        lokacija=findViewById(R.id.lokacija);
         spinner1=findViewById(R.id.kratnost);
         spinner2=findViewById(R.id.itnost);
         aktivnost=findViewById(R.id.aktivnost);
         opis=findViewById(R.id.opis);
         save=findViewById(R.id.save);
         listN=findViewById(R.id.listN);
+        logout=findViewById(R.id.logout);
 
         Intent intent = getIntent();
-        //newLat = intent.getDoubleExtra("NewLat",0);
-        //newLon = intent.getDoubleExtra("NewLon",0);
+        newLat = intent.getDoubleExtra("NewLat",0);
+        newLon = intent.getDoubleExtra("NewLon",0);
 
 
 
@@ -124,7 +127,7 @@ public class PovozrasnoLice extends AppCompatActivity {
         }
 
 
-    /*lokacija.setOnClickListener(new View.OnClickListener() {
+    lokacija.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                Intent intent=new Intent(PovozrasnoLice.this,LocationActivity.class);
@@ -138,7 +141,7 @@ public class PovozrasnoLice extends AppCompatActivity {
                 }
                 startActivity(intent);
             }
-        });*/
+        });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,13 +157,13 @@ public class PovozrasnoLice extends AppCompatActivity {
 
                         map.put("ActivityType",aktivnost.getText().toString());
                         map.put("Opis",opis.getText().toString());
-                       /* if(newLat == 0.0 && newLon == 0.0){
+                        if(newLat == 0.0 && newLon == 0.0){
                             map.put("Lat", lat);
                             map.put("Lon", lon);
                         }else{
                             map.put("Lat", newLat);
                             map.put("Lon", newLon);
-                        }*/
+                        }
                         datumVreme=dateButton.getText()+" "+timeButton.getText();
                         map.put("Datum",datumVreme);
                         map.put("Ime",fullName);
@@ -195,8 +198,14 @@ public class PovozrasnoLice extends AppCompatActivity {
                 startActivity(new Intent(PovozrasnoLice.this,ViewActivity.class));
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PovozrasnoLice.this,MainActivity.class));
+            }
+        });
 
-        //updateGPS();
+        updateGPS();
 
     }
 
@@ -294,7 +303,7 @@ public class PovozrasnoLice extends AppCompatActivity {
         timePickerDialog.show();
 
     }
-    /*@Override
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -307,9 +316,8 @@ public class PovozrasnoLice extends AppCompatActivity {
                 }
                 break;
         }
-    }*/
-
-   /* private void updateGPS() {
+    }
+    private void updateGPS() {
       fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(PovozrasnoLice.this);
       if(ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED){
           fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
@@ -325,7 +333,7 @@ public class PovozrasnoLice extends AppCompatActivity {
               requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PERMISSIONS_FINE_LOCATION);
           }
       }
-    }*/
+    }
 
 
 

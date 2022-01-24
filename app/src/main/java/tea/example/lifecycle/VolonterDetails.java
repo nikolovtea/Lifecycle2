@@ -40,13 +40,13 @@ public class VolonterDetails extends AppCompatActivity {
         String celoIme = intent.getStringExtra("Ime");
         String datum = intent.getStringExtra("Datum");
         String tipNaUsluga = intent.getStringExtra("ActivityType");
-       // String rastojanie = intent.getStringExtra("Rastojanie");
-        String rejting = intent.getStringExtra("RejtingVolonter");
+        String rastojanie = intent.getStringExtra("Rastojanie");
+        String rejting = intent.getStringExtra("RejtingZaVolonter");
 
         imeKorisnikDesno.setText(celoIme);
         datumDesno.setText(datum);
         tipNaUslugaDesno.setText(tipNaUsluga);
-        //rastojanieDesno.setText(rastojanie + " km");
+        rastojanieDesno.setText(rastojanie + " km");
         rejtingDesno.setText(rejting);
 
         HashMap<String, Object> map = new HashMap<>();

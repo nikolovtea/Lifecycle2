@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".PovozrasnoLice"
     android:background="@drawable/bck2">
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/babyblue"
+        android:text="Одјави се"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="10dp"/>
     <EditText
         android:id="@+id/aktivnost"
         android:layout_height="wrap_content"
@@ -67,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_width="250dp"
         android:backgroundTint="@color/flaminog"
-        app:layout_constraintBottom_toTopOf="@id/kratnost"
+        app:layout_constraintBottom_toTopOf="@id/pom"
         app:layout_constraintTop_toBottomOf="@id/datePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,30 +87,41 @@
         android:textSize="18sp"
         android:onClick="popTimePicker"
         android:textColor="@color/black"/>
-
-    <Spinner
-        android:id="@+id/kratnost"
+    <RelativeLayout
+        android:id="@+id/pom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/itnost"
-        app:layout_constraintTop_toBottomOf="@id/time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:entries="@array/kratnost"
-        android:spinnerMode="dropdown"
-        />
-
-    <Spinner
-        android:id="@+id/itnost"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:backgroundTint="@color/purple_200"
+        app:layout_constraintTop_toBottomOf="@+id/time"
         app:layout_constraintBottom_toTopOf="@+id/lokacija"
-        app:layout_constraintTop_toBottomOf="@id/kratnost"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:entries="@array/itnost"
-        />
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/kratnost"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:entries="@array/kratnost"
+            android:spinnerMode="dropdown"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="55dp"
+            />
+
+        <Spinner
+            android:id="@+id/itnost"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:backgroundTint="@color/purple_200"
+            android:entries="@array/itnost"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="0dp"
+            android:spinnerMode="dropdown"
+            />
+
+
+
+    </RelativeLayout>
+
+
 
     <Button
         android:id="@+id/lokacija"
@@ -110,7 +132,7 @@
         app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itnost" />
+        app:layout_constraintTop_toBottomOf="@id/pom" />
 
     <Button
         android:layout_height="wrap_content"
